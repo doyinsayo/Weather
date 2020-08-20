@@ -24,12 +24,15 @@
        <div class="container">
         <form action="" method="post">
             {% csrf_token %}
-            <div class="container">
-              <input type="text" name="search" placeholder="Search City or Postcode ">
-              <button class="btn waves-effect waves-light" type="submit" name="action">Search
-                <i class="material-icons right">search</i>
-              </button>
-            </div>
+            <div class="field has-addons">
+              <div class="control is-expanded">
+                <div class="container">
+                  <input type="text" name="search" placeholder="Add City or Postcode ">
+                  <button class="btn waves-effect waves-light" type="submit" name="action">Search
+                    <i class="material-icons right">search</i>
+                  </button>
+                </div>
+              </div>
         </form>
         <br>
         <br>
@@ -40,6 +43,7 @@
           <div class="container">
               <div class="columns">
                   <div class="column is-offset-4 is-4">
+                    {% for weather in weather_data  %}
                     <div class="box">
                       <article class="media">
                           <div class="media-left">
@@ -59,6 +63,7 @@
                           </div>
                       </article>
                   </div>
+                   {% endfor %}
                   </div>
               </div>
           </div>
