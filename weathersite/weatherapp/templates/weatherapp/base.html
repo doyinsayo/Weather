@@ -8,8 +8,62 @@
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet"  href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
-    <h1>Today's Weather</h1>
+<body>    
+        <nav>
+            <div class="nav-wrapper">
+              <a href="#!" class="brand-logo center">How is the Weather Today ? </a>
+            </div>
+        </nav>
+        <br>
+        <br>
+        <br>
+        <br>
+       <div class="container">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="container">
+              <input type="text" name="search" placeholder="Search City or Postcode ">
+              <button class="btn waves-effect waves-light" type="submit" name="action">Search
+                <i class="material-icons right">search</i>
+              </button>
+            </div>
+        </form>
+        <br>
+        <br>
+       </div>
+       <div class="container">
+        <h4 style="text-align: center">
+          <section class="section">
+          <div class="container">
+              <div class="columns">
+                  <div class="column is-offset-4 is-4">
+                    <div class="box">
+                      <article class="media">
+                          <div class="media-left">
+                              <figure class="image is-50x50">
+                                  <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Image">
+                              </figure>
+                          </div>
+                          <div class="media-content">
+                              <div class="content">
+                                  <p>
+                                      <span class="title">{{ weather.city }}</span>
+                                      <br>
+                                      <span class="subtitle">{{ weather.temperature }}° F</span>
+                                      <br> {{ weather.description }}
+                                  </p>
+                              </div>
+                          </div>
+                      </article>
+                  </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      </h4>
+       </div>
 </body>
 </html>
